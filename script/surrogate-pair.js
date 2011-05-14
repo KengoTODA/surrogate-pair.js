@@ -48,7 +48,6 @@
 			return str.substr(startIndex, endIndex - startIndex);
 		},
 		containsSurrogatePair: function(str) {
-//			if (!isString(str)) return false;
 			return PATTERN.test(str);
 		},
 		isHighSurrogate: isHighSurrogate,
