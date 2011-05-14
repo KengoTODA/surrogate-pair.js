@@ -1,6 +1,6 @@
 surrogate-pair.js
 =================
-surrogate-pair.js is a library which makes easy to handle surrogate pair.
+surrogate-pair.js is a library which makes handling surrogate pair easy.
 
 tested browsers
 ---------------
