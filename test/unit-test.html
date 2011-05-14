@@ -9,123 +9,123 @@
 		var SURROGATE_CHARACTER = '𠮟';
 		module('codePointCount');
 		test('codePointCount with empty argument', function() {
-			equals($.sp.codePointCount(), 0);
-			equals($.sp.codePointCount(''), 0);
-			equals($.sp.codePointCount({}), 0);
-			equals($.sp.codePointCount([]), 0);
-			equals($.sp.codePointCount(null), 0);
-			equals($.sp.codePointCount(true), 0);
-			equals($.sp.codePointCount(false), 0);
+			equals(sp.countCodePoint(), 0);
+			equals(sp.countCodePoint(''), 0);
+			equals(sp.countCodePoint({}), 0);
+			equals(sp.countCodePoint([]), 0);
+			equals(sp.countCodePoint(null), 0);
+			equals(sp.countCodePoint(true), 0);
+			equals(sp.countCodePoint(false), 0);
 		});
 		test('codePointCount with non empty argument', function() {
-			equals($.sp.codePointCount('a'), 1);
-			equals($.sp.codePointCount('1'), 1);
-			equals($.sp.codePointCount('\r'), 1);
-			equals($.sp.codePointCount('\n'), 1);
-			equals($.sp.codePointCount('\t'), 1);
-			equals($.sp.codePointCount('\r\n'), 2);
+			equals(sp.countCodePoint('a'), 1);
+			equals(sp.countCodePoint('1'), 1);
+			equals(sp.countCodePoint('\r'), 1);
+			equals(sp.countCodePoint('\n'), 1);
+			equals(sp.countCodePoint('\t'), 1);
+			equals(sp.countCodePoint('\r\n'), 2);
 		});
 		test('test with surrogate pair', function() {
-			equals($.sp.codePointCount(SURROGATE_CHARACTER), 1);
-			equals($.sp.codePointCount(SURROGATE_CHARACTER + SURROGATE_CHARACTER), 2);
-			equals($.sp.codePointCount('a' + SURROGATE_CHARACTER), 2);
+			equals(sp.countCodePoint(SURROGATE_CHARACTER), 1);
+			equals(sp.countCodePoint(SURROGATE_CHARACTER + SURROGATE_CHARACTER), 2);
+			equals(sp.countCodePoint('a' + SURROGATE_CHARACTER), 2);
 		});
 
 		module('substr');
 		test('substr with empty argument', function() {
-			equals($.sp.substr(), '');
-			equals($.sp.substr(''), '');
-			equals($.sp.substr(null), '');
-			equals($.sp.substr({}), '');
-			equals($.sp.substr([]), '');
-			equals($.sp.substr(true), '');
-			equals($.sp.substr(false), '');
+			equals(sp.substr(), '');
+			equals(sp.substr(''), '');
+			equals(sp.substr(null), '');
+			equals(sp.substr({}), '');
+			equals(sp.substr([]), '');
+			equals(sp.substr(true), '');
+			equals(sp.substr(false), '');
 		});
 		test('substr with non empty argument', function() {
 			var v = [ 0, 1, 2, 3, undefined ];
 			for ( var i = 0; i < v.length; ++i) {
-				equals($.sp.substr('abc', v[i]), 'abc'.substr(v[i]));
+				equals(sp.substr('abc', v[i]), 'abc'.substr(v[i]));
 				for ( var j = 0; j < v.length; ++j) {
-					equals($.sp.substr('abc', v[i], v[j]), 'abc'.substr(v[i], v[j]));
+					equals(sp.substr('abc', v[i], v[j]), 'abc'.substr(v[i], v[j]));
 				}
 			}
 		});
 		test('test with surrogate pair',
 				function() {
-					equals($.sp.substr(SURROGATE_CHARACTER), SURROGATE_CHARACTER);
-					equals($.sp.substr(SURROGATE_CHARACTER, 0), SURROGATE_CHARACTER);
-					equals($.sp.substr(SURROGATE_CHARACTER, 1), '');
-					equals($.sp.substr(SURROGATE_CHARACTER, 0, 0), '');
-					equals($.sp.substr(SURROGATE_CHARACTER, 0, 1), SURROGATE_CHARACTER);
+					equals(sp.substr(SURROGATE_CHARACTER), SURROGATE_CHARACTER);
+					equals(sp.substr(SURROGATE_CHARACTER, 0), SURROGATE_CHARACTER);
+					equals(sp.substr(SURROGATE_CHARACTER, 1), '');
+					equals(sp.substr(SURROGATE_CHARACTER, 0, 0), '');
+					equals(sp.substr(SURROGATE_CHARACTER, 0, 1), SURROGATE_CHARACTER);
 
-					equals($.sp.substr(SURROGATE_CHARACTER, 1, 0), '');
-					equals($.sp.substr(SURROGATE_CHARACTER, 1, 1), '');
-					equals($.sp.substr('a' + SURROGATE_CHARACTER, 0, 1), 'a');
-					equals($.sp.substr('a' + SURROGATE_CHARACTER, 0, 2), 'a'
+					equals(sp.substr(SURROGATE_CHARACTER, 1, 0), '');
+					equals(sp.substr(SURROGATE_CHARACTER, 1, 1), '');
+					equals(sp.substr('a' + SURROGATE_CHARACTER, 0, 1), 'a');
+					equals(sp.substr('a' + SURROGATE_CHARACTER, 0, 2), 'a'
 							+ SURROGATE_CHARACTER);
 
-					equals($.sp.substr('a' + SURROGATE_CHARACTER, 1, 1),
+					equals(sp.substr('a' + SURROGATE_CHARACTER, 1, 1),
 							SURROGATE_CHARACTER);
-					equals($.sp.substr('a' + SURROGATE_CHARACTER, 1, 2),
+					equals(sp.substr('a' + SURROGATE_CHARACTER, 1, 2),
 							SURROGATE_CHARACTER);
-					equals($.sp.substr('a' + SURROGATE_CHARACTER, 2, 1), '');
-					equals($.sp.substr(SURROGATE_CHARACTER + 'a', 0, 1),
+					equals(sp.substr('a' + SURROGATE_CHARACTER, 2, 1), '');
+					equals(sp.substr(SURROGATE_CHARACTER + 'a', 0, 1),
 							SURROGATE_CHARACTER);
-					equals($.sp.substr(SURROGATE_CHARACTER + 'a', 0, 2),
+					equals(sp.substr(SURROGATE_CHARACTER + 'a', 0, 2),
 							SURROGATE_CHARACTER + 'a');
 
-					equals($.sp.substr(SURROGATE_CHARACTER + 'a', 1, 1), 'a');
-					equals($.sp.substr(SURROGATE_CHARACTER + 'a', 1, 2), 'a');
-					equals($.sp.substr(SURROGATE_CHARACTER + 'a', 2, 1), '');
+					equals(sp.substr(SURROGATE_CHARACTER + 'a', 1, 1), 'a');
+					equals(sp.substr(SURROGATE_CHARACTER + 'a', 1, 2), 'a');
+					equals(sp.substr(SURROGATE_CHARACTER + 'a', 2, 1), '');
 				});
 
 		module('isLowSurrogate');
 		test('isLowSurrogate', function() {
-			equals(false, $.sp.isLowSurrogate());
-			equals(false, $.sp.isLowSurrogate(null));
-			equals(false, $.sp.isLowSurrogate({}));
-			equals(false, $.sp.isLowSurrogate([]));
-			equals(false, $.sp.isLowSurrogate(true));
-			equals(false, $.sp.isLowSurrogate(false));
+			equals(false, sp.isLowSurrogate());
+			equals(false, sp.isLowSurrogate(null));
+			equals(false, sp.isLowSurrogate({}));
+			equals(false, sp.isLowSurrogate([]));
+			equals(false, sp.isLowSurrogate(true));
+			equals(false, sp.isLowSurrogate(false));
 		});
 		test('isLowSurrogate with surrogate pair',
 				function() {
-					equals(false, $.sp.isLowSurrogate(SURROGATE_CHARACTER
+					equals(false, sp.isLowSurrogate(SURROGATE_CHARACTER
 							.charCodeAt(0)));
-					equals(true, $.sp.isLowSurrogate(SURROGATE_CHARACTER
+					equals(true, sp.isLowSurrogate(SURROGATE_CHARACTER
 							.charCodeAt(1)));
 				});
 
 		module('isHighSurrogate');
 		test('isHighSurrogate with empty value', function() {
-			equals(false, $.sp.isHighSurrogate());
-			equals(false, $.sp.isHighSurrogate(null));
-			equals(false, $.sp.isHighSurrogate({}));
-			equals(false, $.sp.isHighSurrogate([]));
-			equals(false, $.sp.isHighSurrogate(true));
-			equals(false, $.sp.isHighSurrogate(false));
+			equals(false, sp.isHighSurrogate());
+			equals(false, sp.isHighSurrogate(null));
+			equals(false, sp.isHighSurrogate({}));
+			equals(false, sp.isHighSurrogate([]));
+			equals(false, sp.isHighSurrogate(true));
+			equals(false, sp.isHighSurrogate(false));
 		});
 		test('isHighSurrogate with surrogate pair', function() {
-			equals(true, $.sp.isHighSurrogate(SURROGATE_CHARACTER.charCodeAt(0)));
-			equals(false, $.sp.isHighSurrogate(SURROGATE_CHARACTER.charCodeAt(1)));
+			equals(true, sp.isHighSurrogate(SURROGATE_CHARACTER.charCodeAt(0)));
+			equals(false, sp.isHighSurrogate(SURROGATE_CHARACTER.charCodeAt(1)));
 		});
 
 		module('containsSurrogatePair');
 		test('containsSurrogatePair with empty value', function() {
-			equals(false, $.sp.containsSurrogatePair());
-			equals(false, $.sp.containsSurrogatePair(null));
-			equals(false, $.sp.containsSurrogatePair({}));
-			equals(false, $.sp.containsSurrogatePair([]));
-			equals(false, $.sp.containsSurrogatePair(true));
-			equals(false, $.sp.containsSurrogatePair(false));
+			equals(false, sp.containsSurrogatePair());
+			equals(false, sp.containsSurrogatePair(null));
+			equals(false, sp.containsSurrogatePair({}));
+			equals(false, sp.containsSurrogatePair([]));
+			equals(false, sp.containsSurrogatePair(true));
+			equals(false, sp.containsSurrogatePair(false));
 		});
 		test('containsSurrogatePair with non empty value', function() {
-			equals(false, $.sp.containsSurrogatePair('a'));
-			equals(false, $.sp.containsSurrogatePair('ab'));
-			equals(false, $.sp.containsSurrogatePair('abc'));
+			equals(false, sp.containsSurrogatePair('a'));
+			equals(false, sp.containsSurrogatePair('ab'));
+			equals(false, sp.containsSurrogatePair('abc'));
 		});
 		test('containsSurrogatePair with surrogate pair', function() {
-			equals(true, $.sp.containsSurrogatePair(SURROGATE_CHARACTER));
+			equals(true, sp.containsSurrogatePair(SURROGATE_CHARACTER));
 		});
 	});
 </script>

@@ -5,7 +5,7 @@
  * Copyright(c) 2011 eller86
  * Licensed under Apache License Version 2.0
  */
-;(function($){
+;(function(){
 	var MIN_HIGH_SURROGATE = 0xD800, MAX_HIGH_SURROGATE = 0xDBFF,
 	    MIN_LOW_SURROGATE  = 0xDC00, MAX_LOW_SURROGATE  = 0xDFFF,
 	    PATTERN = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
@@ -19,8 +19,8 @@
 		return c >= MIN_LOW_SURROGATE && c <= MAX_LOW_SURROGATE;
 	};
 
-	$.sp = {
-		codePointCount: function(str) {
+	sp = {
+		countCodePoint: function(str) {
 			if (!isString(str)) return 0;
 			var count = 0;
 			for (var i = 0; i < str.length; ++i) {
@@ -50,7 +50,9 @@
 		containsSurrogatePair: function(str) {
 			return PATTERN.test(str);
 		},
+		// TODO rename to good one do not like 'is~'
 		isHighSurrogate: isHighSurrogate,
+		// TODO rename to good one do not like 'is~'
 		isLowSurrogate:  isLowSurrogate
 	};
-})(jQuery);
+})();
