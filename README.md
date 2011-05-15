@@ -7,6 +7,7 @@ tested browsers
 - Google Chrome 11+ on MacOSX 10.6.7
 - Safari 5.0.5 on MacOSX 10.6.7
 - Mozilla Firefox 3.6.13 on MacOSX 10.6.7
+- Opera 11.01 on MacOSX 10.6.7
 
 methods
 -------
