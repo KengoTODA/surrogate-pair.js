@@ -32,8 +32,9 @@
 			return count;
 		},
 		substr: function(str, startCodePoints, codePoints) {
-			if (!isString(str)) return '';
+			if (!isString(str) || codePoints <= 0) return '';
 			if (startCodePoints === undefined) { startCodePoints = 0; }
+			var codePoints_ = codePoints;
 			if (codePoints === undefined) { codePoints = str.length; }
 
 			var count = 0, startIndex = 0, endIndex = str.length;
@@ -45,7 +46,13 @@
 				}
 				++count;
 			}
-			return str.substr(startIndex, endIndex - startIndex);
+			if (arguments.length < 3) {
+				return str.substr(startIndex);
+			} else if (codePoints_ === undefined) {
+				return str.substr(startIndex, undefined);
+			} else {
+				return str.substr(startIndex, endIndex - startIndex);
+			}
 		},
 		containsSurrogatePair: function(str) {
 			return PATTERN.test(str);

@@ -6,6 +6,7 @@ tested browsers
 ---------------
 - Google Chrome 11+ on MacOSX 10.6.7
 - Safari 5.0.5 on MacOSX 10.6.7
+- Mozilla Firefox 3.6.13 on MacOSX 10.6.7
 
 methods
 -------
@@ -24,7 +25,15 @@ count code points of given string and return it.
 
 
 ### substr(str, startCodePoints, codePoints)
-(sorry, now under construction)
+returns the code points in a string beginning at the specified location through the specified number of code points.
+this method resembles String.prototype.substr, but its startCodePoints should be positive number.
+
+    sp.substr('abc', 0);      // = 'abc'
+    sp.substr('abc', 1);      // = 'bc'
+    sp.substr('abc', 0, 0);   // = ''
+    sp.substr('a𠮟', 0, 2);   // = 'a𠮟'
+    sp.substr('a𠮟', 1, 1);   // = '𠮟'
+
 
 ### containsSurrogatePair(str)
 return true if given string contains any surrogate pair.
