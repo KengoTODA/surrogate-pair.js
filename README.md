@@ -8,6 +8,7 @@ tested browsers
 - Safari 5.0.5 on MacOSX 10.6.7
 - Mozilla Firefox 3.6.13 on MacOSX 10.6.7
 - Opera 11.01 on MacOSX 10.6.7
+- Internet Explorer 7.0.5730.13 on Windows XP SP3
 
 methods
 -------
