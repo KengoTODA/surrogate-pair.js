@@ -28,10 +28,11 @@ count code points of given string and return it.
 
 ### substr(str, startCodePoints, codePoints)
 returns the code points in a string beginning at the specified location through the specified number of code points.
-this method resembles String.prototype.substr, but its startCodePoints should be positive number.
+this method resembles String.prototype.substr.
 
     sp.substr('abc', 0);      // = 'abc'
     sp.substr('abc', 1);      // = 'bc'
+    sp.substr('abc', -2);     // = 'bc'
     sp.substr('abc', 0, 0);   // = ''
     sp.substr('a𠮟', 0, 2);   // = 'a𠮟'
     sp.substr('a𠮟', 1, 1);   // = '𠮟'
