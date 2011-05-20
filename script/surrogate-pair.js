@@ -36,8 +36,12 @@
 			if (startCodePoints === undefined) { startCodePoints = 0; }
 			var codePoints_ = codePoints;
 			if (codePoints === undefined) { codePoints = str.length; }
+			if (startCodePoints < 0) {
+				// TODO make more faster
+				startCodePoints = Math.max(0, startCodePoints + sp.countCodePoint(str));
+			}
 
-			var count = 0, startIndex = 0, endIndex = str.length;
+			var count = 0, startIndex = undefined, endIndex = str.length;
 			for (var i = 0; i <= str.length; ++i) {
 				if (count === startCodePoints) { startIndex = i; }
 				if (count === startCodePoints + codePoints) { endIndex = i; break; }
@@ -46,7 +50,9 @@
 				}
 				++count;
 			}
-			if (arguments.length < 3) {
+			if (startIndex === undefined) {
+				return '';
+			} else if (arguments.length < 3) {
 				return str.substr(startIndex);
 			} else if (codePoints_ === undefined) {
 				return str.substr(startIndex, undefined);

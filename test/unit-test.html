@@ -43,9 +43,9 @@
 			equals(sp.substr(false), '');
 		});
 		test('substr with non empty argument', function() {
-			var v = [ 0, 1, 2, 3, undefined ];
+			var v = [ -4, -3, -2, -1, 0, 1, 2, 3, 4, undefined ];
 			for ( var i = 0; i < v.length; ++i) {
-				equals(sp.substr('abc', v[i]), 'abc'.substr(v[i]));
+				equals(sp.substr('abc', v[i]), 'abc'.substr(v[i]), "sp.substr('abc', " + v[i] + ") === 'abc'.substr(" + v[i] + ")");
 				for ( var j = 0; j < v.length; ++j) {
 					equals(sp.substr('abc', v[i], v[j]), 'abc'.substr(v[i], v[j]), "sp.substr('abc', " + v[i] + ", " + v[j] + ") === 'abc'.substr(" + v[i] + ", " + v[j] + ")");
 				}
@@ -78,6 +78,8 @@
 					equals(sp.substr(SURROGATE_CHARACTER + 'a', 1, 1), 'a');
 					equals(sp.substr(SURROGATE_CHARACTER + 'a', 1, 2), 'a');
 					equals(sp.substr(SURROGATE_CHARACTER + 'a', 2, 1), '');
+					equals(sp.substr(SURROGATE_CHARACTER + 'a', -1, 1), 'a');
+					equals(sp.substr(SURROGATE_CHARACTER + 'a', -2, 1), SURROGATE_CHARACTER);
 				});
 
 		module('isLowSurrogate');
