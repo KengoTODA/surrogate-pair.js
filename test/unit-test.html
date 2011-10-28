@@ -80,53 +80,53 @@
 					equals(sp.substr(SURROGATE_CHARACTER + 'a', 2, 1), '');
 				});
 
-		module('isLowSurrogate');
-		test('isLowSurrogate', function() {
-			equals(false, sp.isLowSurrogate());
-			equals(false, sp.isLowSurrogate(null));
-			equals(false, sp.isLowSurrogate({}));
-			equals(false, sp.isLowSurrogate([]));
-			equals(false, sp.isLowSurrogate(true));
-			equals(false, sp.isLowSurrogate(false));
+		module('checkLowSurrogate');
+		test('checkLowSurrogate', function() {
+			equals(false, sp.checkLowSurrogate());
+			equals(false, sp.checkLowSurrogate(null));
+			equals(false, sp.checkLowSurrogate({}));
+			equals(false, sp.checkLowSurrogate([]));
+			equals(false, sp.checkLowSurrogate(true));
+			equals(false, sp.checkLowSurrogate(false));
 		});
-		test('isLowSurrogate with surrogate pair',
+		test('checkLowSurrogate with surrogate pair',
 				function() {
-					equals(false, sp.isLowSurrogate(SURROGATE_CHARACTER
+					equals(false, sp.checkLowSurrogate(SURROGATE_CHARACTER
 							.charCodeAt(0)));
-					equals(true, sp.isLowSurrogate(SURROGATE_CHARACTER
+					equals(true, sp.checkLowSurrogate(SURROGATE_CHARACTER
 							.charCodeAt(1)));
 				});
 
-		module('isHighSurrogate');
-		test('isHighSurrogate with empty value', function() {
-			equals(false, sp.isHighSurrogate());
-			equals(false, sp.isHighSurrogate(null));
-			equals(false, sp.isHighSurrogate({}));
-			equals(false, sp.isHighSurrogate([]));
-			equals(false, sp.isHighSurrogate(true));
-			equals(false, sp.isHighSurrogate(false));
+		module('checkHighSurrogate');
+		test('checkHighSurrogate with empty value', function() {
+			equals(false, sp.checkHighSurrogate());
+			equals(false, sp.checkHighSurrogate(null));
+			equals(false, sp.checkHighSurrogate({}));
+			equals(false, sp.checkHighSurrogate([]));
+			equals(false, sp.checkHighSurrogate(true));
+			equals(false, sp.checkHighSurrogate(false));
 		});
-		test('isHighSurrogate with surrogate pair', function() {
-			equals(true, sp.isHighSurrogate(SURROGATE_CHARACTER.charCodeAt(0)));
-			equals(false, sp.isHighSurrogate(SURROGATE_CHARACTER.charCodeAt(1)));
+		test('checkHighSurrogate with surrogate pair', function() {
+			equals(true, sp.checkHighSurrogate(SURROGATE_CHARACTER.charCodeAt(0)));
+			equals(false, sp.checkHighSurrogate(SURROGATE_CHARACTER.charCodeAt(1)));
 		});
 
-		module('containsSurrogatePair');
-		test('containsSurrogatePair with empty value', function() {
-			equals(false, sp.containsSurrogatePair());
-			equals(false, sp.containsSurrogatePair(null));
-			equals(false, sp.containsSurrogatePair({}));
-			equals(false, sp.containsSurrogatePair([]));
-			equals(false, sp.containsSurrogatePair(true));
-			equals(false, sp.containsSurrogatePair(false));
+		module('findSurrogatePair');
+		test('findSurrogatePair with empty value', function() {
+			equals(false, sp.findSurrogatePair());
+			equals(false, sp.findSurrogatePair(null));
+			equals(false, sp.findSurrogatePair({}));
+			equals(false, sp.findSurrogatePair([]));
+			equals(false, sp.findSurrogatePair(true));
+			equals(false, sp.findSurrogatePair(false));
 		});
-		test('containsSurrogatePair with non empty value', function() {
-			equals(false, sp.containsSurrogatePair('a'));
-			equals(false, sp.containsSurrogatePair('ab'));
-			equals(false, sp.containsSurrogatePair('abc'));
+		test('findSurrogatePair with non empty value', function() {
+			equals(false, sp.findSurrogatePair('a'));
+			equals(false, sp.findSurrogatePair('ab'));
+			equals(false, sp.findSurrogatePair('abc'));
 		});
-		test('containsSurrogatePair with surrogate pair', function() {
-			equals(true, sp.containsSurrogatePair(SURROGATE_CHARACTER));
+		test('findSurrogatePair with surrogate pair', function() {
+			equals(true, sp.findSurrogatePair(SURROGATE_CHARACTER));
 		});
 	});
 </script>
