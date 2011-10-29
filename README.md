@@ -84,3 +84,7 @@ http://docs.jquery.com/QUnit
 
 surrogate-pair.min.js is compressed by YUI-compressor-2.4.6.
 http://developer.yahoo.com/yui/compressor/
+
+surrogate-pair.js is written in coffeescript.
+http://jashkenas.github.com/coffee-script/
+
