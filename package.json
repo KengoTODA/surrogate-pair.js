@@ -1,0 +1,15 @@
+{
+  "name": "surrogate-pair",
+  "description": "a library to handle surrogate pair of UTF-16",
+  "homepage": "https://github.com/eller86/surrogate-pair.js",
+  "author": "eller86 (@eller86)",
+  "tags": "utility",
+  "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/eller86/surrogate-pair.js.git"
+    },
+  "version": "0.1.0",
+  "dependencies": {},
+  "main": "./script/surrogate-pair.npm"
+}

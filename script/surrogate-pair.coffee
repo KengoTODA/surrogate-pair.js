@@ -20,17 +20,15 @@ checkHighSurrogate = (c) ->
 checkLowSurrogate = (c) ->
   MIN_LOW_SURROGATE <= c <= MAX_LOW_SURROGATE
 
-window.sp = {
-  countCodePoints: (string) ->
+exports.countCodePoints = (string) ->
     return 0 if !checkString(string)
     count = 0
     for i in [0...string.length]
       ++i if checkHighSurrogate(string.charCodeAt(i)) && checkLowSurrogate(string.charCodeAt(i + 1))
       ++count
-
     return count
 
-  substr: (string='', startCodePoints=0, codePoints=string.length) ->
+exports.substr = (string='', startCodePoints=0, codePoints=string.length) ->
     return '' if !checkString(string) || codePoints <= 0
     count = 0
     startIndex = 0
@@ -44,10 +42,10 @@ window.sp = {
       ++count
     return string.substr(startIndex, endIndex - startIndex)
 
-  findSurrogatePair: (string) ->
+exports.findSurrogatePair = (string) ->
     PATTERN.test(string)
 
-  checkHighSurrogate: checkHighSurrogate
-  checkLowSurrogate: checkLowSurrogate
+exports.checkHighSurrogate = checkHighSurrogate
 
-}
+exports.checkLowSurrogate = checkLowSurrogate
+
