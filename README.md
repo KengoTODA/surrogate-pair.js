@@ -15,15 +15,15 @@ methods
 if you load surrogate-pair.js, a global object named 'sp' is created.
 this object has utility methods below:
 
-### countCodePoint(str)
+### countCodePoints(str)
 count code points of given string and return it.
 
-    sp.codePointCount('');     // = 0
-    sp.codePointCount('abc');  // = 3
-    sp.codePointCount('あ');   // = 1
-    sp.codePointCount('あ');   // = 1
+    sp.countCodePoints('');     // = 0
+    sp.countCodePoints('abc');  // = 3
+    sp.countCodePoints('あ');   // = 1
+    sp.countCodePoints('あ');   // = 1
     '𠮟'.length;               // = 2
-    sp.codePointCount('𠮟');   // = 1
+    sp.countCodePoints('𠮟');   // = 1
 
 
 ### substr(str, startCodePoints, codePoints)
@@ -37,27 +37,27 @@ this method resembles String.prototype.substr, but its startCodePoints should be
     sp.substr('a𠮟', 1, 1);   // = '𠮟'
 
 
-### containsSurrogatePair(str)
+### findSurrogatePair(str)
 return true if given string contains any surrogate pair.
 
-    sp.containsSurrogatePair('');    // = false
-    sp.containsSurrogatePair('abc'); // = false
-    sp.containsSurrogatePair('あ');  // = false
-    sp.containsSurrogatePair('𠮟');  // = true
+    sp.findSurrogatePair('');    // = false
+    sp.findSurrogatePair('abc'); // = false
+    sp.findSurrogatePair('あ');  // = false
+    sp.findSurrogatePair('𠮟');  // = true
 
-### isHighSurrogate(charCode)
+### checkHighSurrogate(charCode)
 return true if given character code is high(leading) surrogate.
 
-    sp.isHighSurrogate('a'.charCodeAt(0))    // = false
-    sp.isHighSurrogate('𠮟'.charCodeAt(0))   // = true
-    sp.isHighSurrogate('𠮟'.charCodeAt(1))   // = false
+    sp.checkHighSurrogate('a'.charCodeAt(0))    // = false
+    sp.checkHighSurrogate('𠮟'.charCodeAt(0))   // = true
+    sp.checkHighSurrogate('𠮟'.charCodeAt(1))   // = false
 
-### isLowSurrogate(charCode)
+### checkLowSurrogate(charCode)
 return true if given character code is low(trailing) surrogate.
 
-    sp.isLowSurrogate('a'.charCodeAt(0))    // = false
-    sp.isLowSurrogate('𠮟'.charCodeAt(0))   // = false
-    sp.isLowSurrogate('𠮟'.charCodeAt(1))   // = true
+    sp.checkLowSurrogate('a'.charCodeAt(0))    // = false
+    sp.checkLowSurrogate('𠮟'.charCodeAt(0))   // = false
+    sp.checkLowSurrogate('𠮟'.charCodeAt(1))   // = true
 
 
 copyright and license

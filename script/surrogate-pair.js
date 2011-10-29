@@ -22,7 +22,7 @@
     return (MIN_LOW_SURROGATE <= c && c <= MAX_LOW_SURROGATE);
   };
   window.sp = {
-    countCodePoint: function(string) {
+    countCodePoints: function(string) {
       var count, i, _ref;
       if (!checkString(string)) {
         return 0;

@@ -21,7 +21,7 @@ checkLowSurrogate = (c) ->
   MIN_LOW_SURROGATE <= c <= MAX_LOW_SURROGATE
 
 window.sp = {
-  countCodePoint: (string) ->
+  countCodePoints: (string) ->
     return 0 if !checkString(string)
     count = 0
     for i in [0...string.length]

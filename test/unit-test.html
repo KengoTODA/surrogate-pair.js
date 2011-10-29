@@ -10,26 +10,26 @@
 		var SURROGATE_CHARACTER = '𠮟';
 		module('codePointCount');
 		test('codePointCount with empty argument', function() {
-			equals(sp.countCodePoint(), 0);
-			equals(sp.countCodePoint(''), 0);
-			equals(sp.countCodePoint({}), 0);
-			equals(sp.countCodePoint([]), 0);
-			equals(sp.countCodePoint(null), 0);
-			equals(sp.countCodePoint(true), 0);
-			equals(sp.countCodePoint(false), 0);
+			equals(sp.countCodePoints(), 0);
+			equals(sp.countCodePoints(''), 0);
+			equals(sp.countCodePoints({}), 0);
+			equals(sp.countCodePoints([]), 0);
+			equals(sp.countCodePoints(null), 0);
+			equals(sp.countCodePoints(true), 0);
+			equals(sp.countCodePoints(false), 0);
 		});
 		test('codePointCount with non empty argument', function() {
-			equals(sp.countCodePoint('a'), 1);
-			equals(sp.countCodePoint('1'), 1);
-			equals(sp.countCodePoint('\r'), 1);
-			equals(sp.countCodePoint('\n'), 1);
-			equals(sp.countCodePoint('\t'), 1);
-			equals(sp.countCodePoint('\r\n'), 2);
+			equals(sp.countCodePoints('a'), 1);
+			equals(sp.countCodePoints('1'), 1);
+			equals(sp.countCodePoints('\r'), 1);
+			equals(sp.countCodePoints('\n'), 1);
+			equals(sp.countCodePoints('\t'), 1);
+			equals(sp.countCodePoints('\r\n'), 2);
 		});
 		test('test with surrogate pair', function() {
-			equals(sp.countCodePoint(SURROGATE_CHARACTER), 1);
-			equals(sp.countCodePoint(SURROGATE_CHARACTER + SURROGATE_CHARACTER), 2);
-			equals(sp.countCodePoint('a' + SURROGATE_CHARACTER), 2);
+			equals(sp.countCodePoints(SURROGATE_CHARACTER), 1);
+			equals(sp.countCodePoints(SURROGATE_CHARACTER + SURROGATE_CHARACTER), 2);
+			equals(sp.countCodePoints('a' + SURROGATE_CHARACTER), 2);
 		});
 
 		module('substr');
