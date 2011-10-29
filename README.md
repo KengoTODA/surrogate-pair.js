@@ -8,7 +8,6 @@ tested browsers
 - Safari 5.0.5 
 - Mozilla Firefox 3.6.13
 - Opera 11.01
-- Internet Explorer 7.0.5730
 - Internet Explorer 9
 
 methods
